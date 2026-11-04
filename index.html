@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="EduPortal student resources and monthly study budget calculator.">
+  <title>EduPortal | Student Resources</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="navigation container" aria-label="Main navigation">
+      <a class="brand" href="#home">EduPortal</a>
+      <div class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#resources">Resources</a>
+        <a href="#budget">Budget calculator</a>
+        <a href="#courses">Courses</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="welcome container" id="home">
+      <p class="eyebrow">YOUR STUDENT HOME BASE</p>
+      <h1>Make student life a little simpler.</h1>
+      <p>Find helpful resources, plan your monthly budget, and explore a course that interests you.</p>
+      <a class="button button-light" href="#resources">Explore student resources</a>
+    </section>
+
+    <section class="section container" id="resources" aria-labelledby="resources-title">
+      <div class="section-heading">
+        <p class="eyebrow">HERE TO HELP</p>
+        <h2 id="resources-title">Student resources</h2>
+        <p>A few useful starting points for your studies and day-to-day student life.</p>
+      </div>
+      <div class="resource-grid">
+        <article class="resource-card">
+          <span class="resource-icon" aria-hidden="true">📚</span>
+          <h3>Study support</h3>
+          <p>Make time for focused study, review your notes, and ask for help when you need it.</p>
+        </article>
+        <article class="resource-card">
+          <span class="resource-icon" aria-hidden="true">🏠</span>
+          <h3>Living well</h3>
+          <p>Plan your essentials and build a routine that leaves room for rest and meals.</p>
+        </article>
+        <article class="resource-card">
+          <span class="resource-icon" aria-hidden="true">💡</span>
+          <h3>Money tips</h3>
+          <p>Set aside savings and emergency funds so unexpected costs are easier to manage.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section container" id="budget" aria-labelledby="budget-title">
+      <div class="budget-layout">
+        <div class="budget-intro">
+          <p class="eyebrow">PLAN YOUR MONTH</p>
+          <h2 id="budget-title">Study Budget Calculator</h2>
+          <p>Enter your total monthly budget and decide how to divide it between four important categories.</p>
+          <div class="budget-tip">
+            <strong>Quick tip</strong>
+            <p>Your percentages must add up to exactly 100% before the calculator can evaluate your budget.</p>
+          </div>
+        </div>
+
+        <div class="calculator-card">
+          <div class="field">
+            <label for="monthly-budget">Total monthly student budget ($)</label>
+            <input id="monthly-budget" name="monthly-budget" type="number" min="0" step="0.01" placeholder="e.g. 1200">
+          </div>
+
+          <div class="percentage-grid">
+            <div class="field">
+              <label for="accommodation">Accommodation (%)</label>
+              <input id="accommodation" name="accommodation" type="number" min="0" max="100" step="0.01" placeholder="e.g. 40">
+            </div>
+            <div class="field">
+              <label for="materials">Study materials (%)</label>
+              <input id="materials" name="materials" type="number" min="0" max="100" step="0.01" placeholder="e.g. 20">
+            </div>
+            <div class="field">
+              <label for="emergency">Emergency expenses (%)</label>
+              <input id="emergency" name="emergency" type="number" min="0" max="100" step="0.01" placeholder="e.g. 15">
+            </div>
+            <div class="field">
+              <label for="savings">Savings (%)</label>
+              <input id="savings" name="savings" type="number" min="0" max="100" step="0.01" placeholder="e.g. 25">
+            </div>
+          </div>
+
+          <button class="button evaluate-button" id="evaluate-budget" type="button">Evaluate Budget</button>
+          <p class="message error-message" id="budget-error" role="alert" hidden></p>
+
+          <div class="results" id="budget-results" aria-live="polite" hidden>
+            <h3>Your monthly plan</h3>
+            <p class="result-row"><span>Accommodation</span><strong id="accommodation-result"></strong></p>
+            <p class="result-row"><span>Study materials</span><strong id="materials-result"></strong></p>
+            <p class="result-row"><span>Emergency expenses</span><strong id="emergency-result"></strong></p>
+            <p class="result-row"><span>Savings</span><strong id="savings-result"></strong></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section container courses-section" id="courses" aria-labelledby="courses-title">
+      <div class="section-heading">
+        <p class="eyebrow">EXPLORE AND LEARN</p>
+        <h2 id="courses-title">Course corner</h2>
+        <p>Select a course to show or hide its description.</p>
+      </div>
+      <div class="course-grid">
+        <article class="course-card">
+          <h3>Web Design Basics</h3>
+          <button class="button course-toggle" type="button" aria-expanded="false">Show description</button>
+          <p class="course-description" hidden>Discover how HTML and CSS are used to build clear, responsive web pages.</p>
+        </article>
+        <article class="course-card">
+          <h3>Study Skills</h3>
+          <button class="button course-toggle" type="button" aria-expanded="false">Show description</button>
+          <p class="course-description" hidden>Practice note-taking, time management, and ways to prepare for assessments.</p>
+        </article>
+        <article class="course-card">
+          <h3>Everyday Data</h3>
+          <button class="button course-toggle" type="button" aria-expanded="false">Show description</button>
+          <p class="course-description" hidden>Learn how to read charts, understand basic statistics, and use data thoughtfully.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <a class="brand" href="#home">EduPortal</a>
+      <p>Small steps make great progress.</p>
+      <p>&copy; <span id="current-year"></span> EduPortal</p>
+    </div>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+  <script src="script.js"></script>
+</body>
+</html>
